@@ -11,10 +11,7 @@ public class StatsService {
     }
 
     public long calculateAverage(long[] sales) {
-        long sum = 0;
-        for (long monthSales : sales) {
-            sum += monthSales;
-        }
+        long sum = calculateSum(sales);
         long average = sum / 12;
         return average;
     }
@@ -44,11 +41,7 @@ public class StatsService {
     }
 
     public int underAverage(long[] sales) {
-        long sum = 0;
-        for (long monthSales : sales) {
-            sum += monthSales;
-        }
-        long average = sum / 12;
+        long average = calculateAverage(sales);
         int countMonUnderAve = 0;
         for (long monthSale : sales) {
             if (monthSale < average) {
@@ -59,11 +52,7 @@ public class StatsService {
     }
 
     public int aboveAverage(long[] sales) {
-        long sum = 0;
-        for (long monthSales : sales) {
-            sum += monthSales;
-        }
-        long average = sum / 12;
+        long average = calculateAverage(sales);
         int countMonAboveAve = 0;
         for (long monthSale : sales) {
             if (monthSale > average) {
